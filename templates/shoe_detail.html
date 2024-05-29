@@ -1,0 +1,36 @@
+{% include "header.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ shoe.name }}</title>
+    <!-- Add your CSS links here -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
+</head>
+<body>
+    <h1>{{ shoe.name }}</h1>
+    <div class="shoe-detail">
+        <img src="{{ shoe.images.first.image.url }}" alt="{{ shoe.name }}" class="shoe-main-image">
+        <div class="shoe-other-images">
+            {% for image in shoe.images.all %}
+            <img src="{{ image.image.url }}" alt="{{ shoe.name }}" class="shoe-secondary-image">
+            {% endfor %}
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/min/tiny-slider.js"></script>
+    <script>
+        // Initialize Tiny Slider for slideshow
+        var slider = tns({
+            container: '.shoe-other-images',
+            items: 1,
+            slideBy: 'page',
+            autoplay: true,
+            autoplayButtonOutput: false,
+            nav: false,
+            controls: true,
+        });
+    </script>
+</body>
+</html>

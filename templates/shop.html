@@ -1,0 +1,118 @@
+{% include "header.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneak : Shop</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+        body {
+            background-color: #1E1E1E;
+            margin: 0;
+            padding-top: 100px;
+            overflow-x: hidden;
+        }
+
+        h1{
+            font-family: Righteous;
+            margin-left: 20px;
+            color: whitesmoke;
+            text-decoration: underline;
+        }
+
+        /* CSS for the square panels */
+        .shoe-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around; /* Equal space between items */
+            padding: 0 10px; /* Adjust padding */
+        }
+
+        .shoe-panel {
+            width: 250px;
+            height: 300px;
+            margin: 20px 0; /* Adjust margin */
+            padding: 10px;
+            background: rgba(82, 82, 82, 0.53);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            border: 1px solid rgba(217, 217, 217, 0.3);
+            transition: all 0.3s ease; /* Add transition for smooth hover effect */
+        }
+
+        .shoe-panel:hover {
+            transform: translateY(-20px); /* Add hover effect */
+            box-shadow: 0 6px 30px rgba(255, 81, 0, 0.807);
+        }
+
+        .shoe-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .shoe-details {
+            font-size: 14px;
+            font-family: K2D;
+            overflow: hidden; /* Hide overflowing content */
+            white-space: nowrap; /* Prevent text wrapping */
+            text-overflow: ellipsis; /* Display ellipsis (...) for overflow */
+        }
+
+        .shoeName {
+            margin: 0;
+            font-size: 25px;
+        }
+
+        .price {
+            font-family: Gugi;
+            font-size: 30px;
+            margin-top: 10px; /* Adjust margin */
+            color: #FF4500;
+        }
+
+        a {
+            text-decoration: none;
+            color: #e6e6e6;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .shoe-list {
+                flex-direction: column; /* Display items in a column */
+                align-items: center; /* Center align items */
+            }
+
+            .shoe-panel {
+                width: 80%; /* Adjust width for smaller screens */
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Choose your Fashion!</h1>
+    <div class="shoe-list">
+        {% for shoe in shoes %}
+        <div class="shoe-panel">
+            <a href="{% url 'shoe_detail' shoe.id %}">
+                <img src="{{ shoe.images.first.image.url }}" alt="{{ shoe.name }}" class="shoe-image">
+                <div class="shoe-details">
+                    <p class="shoeName">{{ shoe.name }}</p>
+                    <p class="price"><b>{{ shoe.price }} ₹</b></p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

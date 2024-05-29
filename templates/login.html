@@ -1,0 +1,116 @@
+{% include "header.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneak : Login</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+
+        body {
+            background-color: #1E1E1E;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .panel {
+            width: 50%;
+            text-align: center;
+            color: #FFF;
+            font-family: 'Gugi';
+            padding: 20px;
+            font-size: x-large;
+            background: rgba(79, 79, 79, 0.4);
+            border-radius: 10px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(79, 79, 79, 1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            border-bottom: 2px solid #FF4500;
+            width: 90%;
+            text-align: left;
+            font-size: 25px;
+        }
+
+        input {
+            margin: 6px 5px 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 90%;
+        }
+
+        input[type="submit"] {
+            background-color: #4d4c4c;
+            color: #FF4500;
+            cursor: pointer;
+            font-family: 'Gugi';
+            font-size: x-large;
+            width: 40%;
+            margin-top: 50px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        input[type="submit"]:hover{
+            background-color: #FF4500;
+            color: #001f3f;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .panel {
+                font-size: medium;
+            }
+
+            label{
+                font-size: large;
+            }
+
+            input{
+                font-size: x-small;
+                padding: 8px;
+            }
+
+            input[type="submit"] {
+                font-size: medium;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <form method="post" action="{% url "login" %}">
+            {% csrf_token %}
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" required>
+            
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" placeholder="Enter your address" required>
+            
+            <input type="submit" value="LOGIN">
+        </form>
+    </div>
+</body>
+</html>

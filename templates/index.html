@@ -1,0 +1,118 @@
+{% include "header.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneak : Home</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+        body{
+            background-color: #1E1E1E;
+            margin: 0; /* Remove default margin */
+            height: 80vh; /* Set the height to 100% of the viewport height */
+            padding-top: 100px;
+            overflow-x: hidden;
+        }
+
+        .tag{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none !important;
+            margin-top: 20px;
+        }
+
+        .shoe{
+            margin-right: 0px; /* Adjust the spacing between the image and text */
+            height: 550px;
+            width: 550px;
+        }
+
+        .text{
+            font-family: "Righteous";
+            color: whitesmoke;
+            font-size: 90px; /* Adjust the font size */
+            text-decoration: none !important;
+            margin-right: 5px;
+        }
+
+        .tagline{
+            text-decoration: underline;
+        }
+
+        .hash{
+            font-size: 40px;
+            color: #FF4500;
+            text-decoration-line: underline;
+        }
+
+        .btn{
+            font-family: "Bebas Neue";
+            text-decoration: none;
+            font-size: 30px;
+            text-align: center;
+            background-color: whitesmoke;
+            height: auto;
+            width: 150px;
+            padding: 10px;
+            padding-top: 13px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 5px;
+            text-decoration: none !important;
+            color: #FF4500;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn:hover{
+            background-color: #FF4500;
+            color: #ffffff;
+        }
+
+        @media only screen and (max-width: 820px) and (min-width: 440px) {
+            .shoe {
+                display: none;
+            }
+
+            .tag {
+                flex-direction: column;
+                text-align: center;
+                margin: 5px;
+            }
+        }
+
+        @media only screen and (max-width: 440px) {
+            .shoe {
+                display: none;
+            }
+
+            .tag {
+                flex-direction: column;
+                text-align: center;
+                margin: 5px;
+            }
+
+            .text{
+                font-size: 50px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="tag">
+        <img class="shoe" src="/static/home-shoe.png" alt="shoe" height="550px" width="550px">
+        <div class="text">
+            <div class="tagline">Elevate your style<br>with Sneak.</div>
+            <div class="hash">#sneakstyle</div>
+            <a class="btn" href="/shop">SHOP SHOES</a>
+        </div>
+    </div>
+    
+</body>
+</html>
